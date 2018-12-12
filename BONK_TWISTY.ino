@@ -3,7 +3,7 @@
 #include "Controller.h"
 
 // setup stuff for addressable leds
-#define LED_PIN     13
+#define LED_PIN     13 
 #define NUM_LEDS    14
 CRGB leds[NUM_LEDS];
 
@@ -24,14 +24,14 @@ byte NUMBER_MUX_POTS = 16;
 //************************************************************
 
 //***ANY MULTIPLEXERS? (74HC4067)************************************
-//MUX address pins must be connected to Arduino UNO pins 2,3,4,5
-//A0 = PIN2, A1 = PIN3, A2 = PIN4, A3 = PIN5
+//MUX address pins must be connected to Arduino UNO pins 2,3,4,5 (or 2,3,4 for 8 channel)
+//A0 = PIN2, A1 = PIN3, A2 = PIN4, A3 = PIN5 // old  
 //*******************************************************************
 //Mux NAME (OUTPUT PIN, , How Many Mux Pins?(8 or 16) , Is It Analog?);
 
 
-Mux M1(A7, 8, true); //Digital multiplexer on Arduino pin 10
-Mux M2(A6, 8, true); //Analog multiplexer on Arduino analog pin A0
+Mux M1(A7, 8, true); //Analog multiplexer on Arduino pin A7
+Mux M2(A6, 8, true); //Analog multiplexer on Arduino analog pin A6
 //*******************************************************************
 
 
