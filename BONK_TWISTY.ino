@@ -35,6 +35,15 @@ Mux M2(A6, 8, true); //Analog multiplexer on Arduino analog pin A6
 //*******************************************************************
 
 
+// undefined midi cc we can use....
+// 3
+// 9
+// 14-15
+// 20-31
+// 85-90
+// 102-119
+
+
 //***DEFINE DIRECTLY CONNECTED POTENTIOMETERS************************
 //Pot (Pin Number, Command, CC Control, Channel Number)
 //**Command parameter is for future use**
@@ -55,20 +64,20 @@ Pot *POTS[] {};
 //Button (led number, Pin Number, Command, Note Number, Channel, Debounce Time)
 //** Command parameter 0=NOTE  1=CC  2=Toggle CC 3=Channel**
 
-Button BU1(13, 6, 2, 60, 1, 5 );
-Button BU2(12, 7, 2, 61, 1, 5 );
-Button BU3(11, 8, 2, 62, 1, 5 );
-Button BU4(10, 9, 2, 63, 1, 5 );
-Button BU5(9, 10, 2, 64, 1, 5 );
-Button BU6(8, 11, 3, 65, 1, 5 );
-Button BU7(7, 12, 3, 67, 2, 5 );
-Button BU8(6, 5, 3, 68, 3, 5 );
-Button BU9(5, 14, 3, 69, 4, 5 );
-Button BU10(4, 15, 2, 70, 1, 5 );
-Button BU11(3, 16, 2, 71, 1, 5 );
-Button BU12(2, 17, 2, 72, 1, 5 );
-Button BU13(1, 18, 2, 73, 1, 5 );
-Button BU14(0, 19, 2, 74, 1, 5 );
+Button BU1(13, 6, 2, 3, 1, 5 );
+Button BU2(12, 7, 2, 9, 1, 5 );
+Button BU3(11, 8, 2, 14, 1, 5 );
+Button BU4(10, 9, 2, 15, 1, 5 );
+Button BU5(9, 10, 2, 20, 1, 5 );
+Button BU6(8, 11, 3, 21, 1, 5 );
+Button BU7(7, 12, 3, 22, 2, 5 );
+Button BU8(6, 5, 3, 23, 3, 5 );
+Button BU9(5, 14, 3, 24, 4, 5 );
+Button BU10(4, 15, 2, 25, 1, 5 );
+Button BU11(3, 16, 2, 26, 1, 5 );
+Button BU12(2, 17, 2, 27, 1, 5 );
+Button BU13(1, 18, 2, 28, 1, 5 );
+Button BU14(0, 19, 2, 29, 1, 5 );
 //*******************************************************************
 //Add buttons used to array below like this->  Button *BUTTONS[] {&BU1, &BU2, &BU3, &BU4, &BU5, &BU6, &BU7, &BU8};
 Button *BUTTONS[] {&BU1, &BU2, &BU3, &BU4, &BU5, &BU6, &BU7, &BU8, &BU9,&BU10, &BU11, &BU12, &BU13, &BU14 };//, &BU2, &BU3, &BU4, &BU5, &BU6, &BU7};
@@ -106,22 +115,22 @@ Button *MUXBUTTONS[] {};
 //Pot::Pot(Mux mux, byte muxpin, byte command, byte control, byte channel)
 //**Command parameter is for future use**
 
-Pot MPO1(M2, 0, 0, 1, 1);
-Pot MPO2(M2, 1, 0, 7, 1);
-Pot MPO3(M2, 2, 0, 50, 1);
-Pot MPO4(M2, 3, 0, 55, 1);
-Pot MPO5(M2, 4, 0, 10, 1);
-Pot MPO6(M2, 5, 0, 22, 1);
-Pot MPO7(M2, 6, 0, 118, 1);
-Pot MPO8(M2, 7, 0, 30, 1);
-Pot MPO9(M1, 0, 0, 56, 1);
-Pot MPO10(M1, 1, 0, 57, 2);
-Pot MPO11(M1, 2, 0, 58, 1);
-Pot MPO12(M1, 3, 0, 59, 2);
-Pot MPO13(M1, 4, 0, 60, 1);
-Pot MPO14(M1, 5, 0, 61, 2);
-Pot MPO15(M1, 6, 0, 62, 1);
-Pot MPO16(M1, 7, 0, 63, 2);
+Pot MPO1(M2, 0, 0, 30, 1);
+Pot MPO2(M2, 1, 0, 31, 1);
+Pot MPO3(M2, 2, 0, 85, 1);
+Pot MPO4(M2, 3, 0, 86, 1);
+Pot MPO5(M2, 4, 0, 87, 1);
+Pot MPO6(M2, 5, 0, 88, 1);
+Pot MPO7(M2, 6, 0, 89, 1);
+Pot MPO8(M2, 7, 0, 90, 1);
+Pot MPO9(M1, 0, 0, 102, 1);
+Pot MPO10(M1, 1, 0, 103, 2);
+Pot MPO11(M1, 2, 0, 104, 1);
+Pot MPO12(M1, 3, 0, 105, 2);
+Pot MPO13(M1, 4, 0, 106, 1);
+Pot MPO14(M1, 5, 0, 107, 2);
+Pot MPO15(M1, 6, 0, 108, 1);
+Pot MPO16(M1, 7, 0, 109, 2);
 //*******************************************************************
 //Add multiplexed pots used to array below like this->  Pot *MUXPOTS[] {&MPO1, &MPO2, &MPO3, &MPO4, &MPO5, &MPO6.....};
 Pot *MUXPOTS[] {&MPO1, &MPO2, &MPO3, &MPO4, &MPO5, &MPO6, &MPO7, &MPO8, &MPO9, &MPO10, &MPO11, &MPO12, &MPO13, &MPO14, &MPO15, &MPO16 };
